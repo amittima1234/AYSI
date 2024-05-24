@@ -25,6 +25,7 @@ class ItemsList extends StatefulWidget {
   const ItemsList({super.key, required this.title});
 
   final String title;
+  @override
   State<ItemsList> createState() => _ItemsListState();
 }
 
