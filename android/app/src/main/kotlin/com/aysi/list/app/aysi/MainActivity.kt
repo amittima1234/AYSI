@@ -1,4 +1,4 @@
-package com.aysi.list.app.aysi
+package com.aysi.list.app
 
 import io.flutter.embedding.android.FlutterActivity
 

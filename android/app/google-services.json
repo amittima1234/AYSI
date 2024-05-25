@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "162670396577",
+    "project_id": "aysi-list",
+    "storage_bucket": "aysi-list.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162670396577:android:c9c547c91e7e8a6c5e9ce0",
+        "android_client_info": {
+          "package_name": "com.aysi.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9sfPNL_U9m97B42EKCxvU5DpyQ2t0vnc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162670396577:android:aafb0acc96bbefb45e9ce0",
+        "android_client_info": {
+          "package_name": "com.aysi.list.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9sfPNL_U9m97B42EKCxvU5DpyQ2t0vnc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162670396577:android:c00f499433cf715d5e9ce0",
+        "android_client_info": {
+          "package_name": "com.aysi.list.com"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9sfPNL_U9m97B42EKCxvU5DpyQ2t0vnc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
