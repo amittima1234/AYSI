@@ -1,6 +1,10 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_database/firebase_database.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -11,12 +15,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Aysi List',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const ItemsList(title: 'Flutter Demo Home Page'),
+      home: const ItemsList(title: 'Aysi List'),
     );
   }
 }
@@ -30,7 +34,10 @@ class ItemsList extends StatefulWidget {
 }
 
 class _ItemsListState extends State<ItemsList> {
+  FirebaseDatabase database = FirebaseDatabase.instance;
+  DatabaseReference ref = FirebaseDatabase.instance.ref("lists");
   List<TextFormField> items = [];
+
   void _addItem() {
     setState(() {
       items.add(
@@ -39,6 +46,11 @@ class _ItemsListState extends State<ItemsList> {
             border: OutlineInputBorder(),
             labelText: 'Add New Item',
           ),
+          onChanged: (text) async => {
+            await ref.set({
+              "item_name": text,
+            })
+          },
         ),
       );
     });
