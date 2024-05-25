@@ -8,31 +8,25 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:162670396577:android:c9c547c91e7e8a6c5e9ce0",
-        "android_client_info": {
-          "package_name": "com.aysi.app"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyB9sfPNL_U9m97B42EKCxvU5DpyQ2t0vnc"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:162670396577:android:aafb0acc96bbefb45e9ce0",
         "android_client_info": {
           "package_name": "com.aysi.list.app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "162670396577-6och40blv9l31a0ibumusjf1tbtbq9ug.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aysi.list.app",
+            "certificate_hash": "533ea0b0231e48f3e8afc1dd0f7bafe655bcb509"
+          }
+        },
+        {
+          "client_id": "162670396577-9h79un5738bfs90ecl5sgfa619abelpe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyB9sfPNL_U9m97B42EKCxvU5DpyQ2t0vnc"
@@ -40,26 +34,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:162670396577:android:c00f499433cf715d5e9ce0",
-        "android_client_info": {
-          "package_name": "com.aysi.list.com"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyB9sfPNL_U9m97B42EKCxvU5DpyQ2t0vnc"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "162670396577-9h79un5738bfs90ecl5sgfa619abelpe.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "162670396577-349qpeb3cm8ro26fcp47l4irs1p3v4hl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.aysi"
+              }
+            }
+          ]
         }
       }
     }
