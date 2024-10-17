@@ -1,15 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_database/firebase_database.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
-  FirebaseAuth.instance
-  .authStateChanges()
-  .listen((User? user) {
+  FirebaseAuth.instance.authStateChanges().listen((User? user) {
     if (user == null) {
       print('User is currently signed out!');
     } else {
@@ -45,26 +43,34 @@ class ItemsList extends StatefulWidget {
 }
 
 class _ItemsListState extends State<ItemsList> {
-  FirebaseDatabase database = FirebaseDatabase.instance;
-  DatabaseReference ref = FirebaseDatabase.instance.ref("lists");
-  List<TextFormField> items = [];
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  List<TextFormField> lists = [];
 
   void _addItem() {
     setState(() {
-      items.add(
+      lists.add(
         TextFormField(
           decoration: const InputDecoration(
             border: OutlineInputBorder(),
             labelText: 'Add New Item',
           ),
-          onChanged: (text) async => {
-            await ref.set({
-              "item_name": text,
-            })
+          onFieldSubmitted: (text) async => {
+            addItemToDB(text)
           },
         ),
       );
     });
+  }
+
+  void addItemToDB(String listName) {
+    firestore.collection('lists').add({
+    'list_name': listName,
+  }).then((DocumentReference doc) {
+    print('DocumentSnapshot added with ID: ${doc.id}');
+  }).catchError((error) {
+    print('Error adding document: $error');
+  });
   }
 
   @override
@@ -74,7 +80,10 @@ class _ItemsListState extends State<ItemsList> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: SingleChildScrollView(child: Column(children: _buildList())),
+      body: SingleChildScrollView(
+          child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(children: _buildList()))),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _addItem(),
         tooltip: 'Add a TextField',
@@ -85,13 +94,14 @@ class _ItemsListState extends State<ItemsList> {
 
   List<Widget> _buildList() {
     List<Widget> textWidgets = [];
-    for (var item in items) {
-      textWidgets.add(
-        SizedBox(
+    for (var list in lists) {
+      textWidgets.add(Padding(
+        padding: const EdgeInsets.all(4),
+        child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          child: item,
+          child: list,
         ),
-      );
+      ));
     }
     return textWidgets;
   }
